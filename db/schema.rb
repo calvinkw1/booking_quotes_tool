@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170720055159) do
 
   create_table "inquiries", force: :cascade do |t|
     t.string "rental_site"
-    t.bigint "unit_id"
+    t.integer "unit_id"
     t.decimal "price", precision: 8, scale: 2
     t.decimal "tax", precision: 8, scale: 2
     t.integer "nights"
@@ -47,6 +47,4 @@ ActiveRecord::Schema.define(version: 20170720055159) do
   end
 
   add_foreign_key "day_prices", "units"
-  add_foreign_key "inquiries", "units"
-  
 end

@@ -18,5 +18,7 @@ end
 
 rental_sites = ["expedia", "booking", "kayak", "hotels.com"]
 10.times do |i|
-  Inquiry.create(rental_site: rental_sites.sample, unit_id: Random.rand(1..2), nights: Random.rand(1..5), adults: Random.rand(1..2))
+  Date.current.upto(10.days.from_now.to_date) do |date|
+    Inquiry.create(rental_site: rental_sites.sample, unit_id: Random.rand(1..2), nights: Random.rand(1..5), adults: Random.rand(1..2), check_in: date)
+  end
 end

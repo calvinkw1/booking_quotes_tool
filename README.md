@@ -15,11 +15,18 @@ Your objective is to build the form by which our team will log the booking, and 
 - The inquiry should have a price, which is the sum of all _nights_ that the guest stayed in the room. So a stay from May 1st to May 3rd would have two nights.
 - The inquiry should store the amount of taxes that were withheld, when the inquiry was made.
 
+1) Let’s not worry about the difference between a booking or an inquiry at this point. Although that difference does exist!
 
-## Notes
+2) A rental site is a site you can book on e.g. Booking.com, Sonder, Expedia etc.
+
+3) This is a product choice you should make, but it’s a good question! How are the UIs different in these two cases? Is one easier to use than another. Note: I understand without prototyping and testing you can’t definitely answer this, but make your best judgement call
+
+4) There are actually tax zones in a city, let’s just assume a constant rate per unit. You can choose where it makes the most sense to store them
+
+## Changelog Notes
 
 ### Changes/Additions on Associations and Models
-- Added Inquiry model with belongs_to assoc. with Unit. Unit has_many inquiries. Inquiry has the following columns:
+- Added Inquiry model with `belongs_to` assoc. with Unit. Unit `has_many` inquiries. Inquiry has the following columns:
   - rental_site
   - unit_id
   - price

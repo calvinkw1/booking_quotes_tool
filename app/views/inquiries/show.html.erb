@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rental site:</strong>
+  <%= @inquiry.rental_site %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @inquiry.unit_id %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @inquiry.price %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%= @inquiry.tax %>
+</p>
+
+<p>
+  <strong>Nights:</strong>
+  <%= @inquiry.nights %>
+</p>
+
+<p>
+  <strong>Check in:</strong>
+  <%= @inquiry.check_in %>
+</p>
+
+<p>
+  <strong>Check out:</strong>
+  <%= @inquiry.check_out %>
+</p>
+
+<p>
+  <strong>Adults:</strong>
+  <%= @inquiry.adults %>
+</p>
+
+<p>
+  <strong>Children:</strong>
+  <%= @inquiry.children %>
+</p>
+
+<p>
+  <strong>Pets:</strong>
+  <%= @inquiry.pets %>
+</p>
+
+<%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
+<%= link_to 'Back', inquiries_path %>

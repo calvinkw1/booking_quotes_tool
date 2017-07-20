@@ -1,0 +1,67 @@
+<%= form_with(model: inquiry, local: true) do |form| %>
+  <% if inquiry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inquiry.errors.count, "error") %> prohibited this inquiry from being saved:</h2>
+
+      <ul>
+      <% inquiry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rental_site %>
+    <%= form.text_field :rental_site, id: :inquiry_rental_site %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit_id %>
+    <%= form.text_field :unit_id, id: :inquiry_unit_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :inquiry_price %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tax %>
+    <%= form.text_field :tax, id: :inquiry_tax %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nights %>
+    <%= form.number_field :nights, id: :inquiry_nights %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check_in %>
+    <%= form.date_select :check_in, id: :inquiry_check_in %>
+  </div>
+
+  <div class="field">
+    <%= form.label :check_out %>
+    <%= form.date_select :check_out, id: :inquiry_check_out %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adults %>
+    <%= form.number_field :adults, id: :inquiry_adults %>
+  </div>
+
+  <div class="field">
+    <%= form.label :children %>
+    <%= form.number_field :children, id: :inquiry_children %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pets %>
+    <%= form.number_field :pets, id: :inquiry_pets %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

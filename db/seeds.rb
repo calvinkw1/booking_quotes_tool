@@ -16,7 +16,7 @@ Date.current.upto(10.days.from_now.to_date) do |date|
   DayPrice.create(unit: sfo_unit, date: date, price: (200 + 20*rand).round(2))
 end
 
-rental_sites = ["expedia", "booking", "kayak", "hotels.com"]
+rental_sites = ["Booking.com", "Bookit.com", "Expedia", "Hotels.com", "Sonder", "Travelocity", "Tripadvisor", "Tripping", "Trivago", "Other"]
 dates = Date.current.upto(7.days.from_now.to_date).to_a
 10.times do |i|
   check_in = dates.sample

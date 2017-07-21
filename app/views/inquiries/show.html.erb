@@ -1,30 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Back', inquiries_path %>
+<%= button_to 'Back', inquiries_path, method: :get %>
+<br>
+
+<h3>Inquiry # <%= @inquiry.id %></h3>
+<br>
 
 <p>
-  <strong>Rental site:</strong>
-  <%= @inquiry.rental_site %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
+  <strong>Unit Name:</strong>
   <%= @inquiry.unit.ad_name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%=h number_to_currency(@inquiry.price) %>
-</p>
-
-<p>
-  <strong>Tax:</strong>
-  <%=h number_to_currency(@inquiry.tax) %>
-</p>
-
-<p>
-  <strong>Nights:</strong>
-  <%= @inquiry.nights %>
 </p>
 
 <p>
@@ -35,6 +19,11 @@
 <p>
   <strong>Check out:</strong>
   <%= @inquiry.check_out %>
+</p>
+
+<p>
+  <strong>Nights:</strong>
+  <%= @inquiry.nights %>
 </p>
 
 <p>
@@ -52,5 +41,24 @@
   <%= @inquiry.pets %>
 </p>
 
-<%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
-<%= link_to 'Destroy', @inquiry, method: :delete, data: { confirm: 'Are you sure?' } %>
+<p>
+  <strong>Price:</strong>
+  <%=h number_to_currency(@inquiry.price) %>
+</p>
+
+<p>
+  <strong>Tax:</strong>
+  <%=h number_to_currency(@inquiry.tax) %>
+</p>
+
+<p>
+  <strong>Rental site:</strong>
+  <%= @inquiry.rental_site %>
+</p>
+
+<br><br><br>
+
+<p>
+  <%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
+  <%= link_to 'Destroy', @inquiry, method: :delete, data: { confirm: 'Are you sure?' } %>
+</p>

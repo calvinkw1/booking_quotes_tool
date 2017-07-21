@@ -21,6 +21,7 @@ class InquiriesController < ApplicationController
   # GET /inquiries/1/edit
   def edit
     @units = Unit.all
+    @inquiry.calculate_cost_of_stay
   end
 
   # POST /inquiries

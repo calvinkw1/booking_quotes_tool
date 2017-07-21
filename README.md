@@ -26,15 +26,5 @@ Your objective is to build the form by which our team will log the booking, and 
 ## Changelog Notes
 
 ### Changes/Additions on Associations and Models
-- Added Inquiry model with `belongs_to` assoc. with Unit. Unit `has_many` inquiries. Inquiry has the following columns:
-  - rental_site
-  - unit_id
-  - price
-  - tax
-  - nights
-  - check_in
-  - check_out
-  - adults
-  - children
-  - pets
+- Added Inquiry model with `belongs_to` association with Unit. Unit `has_many` inquiries.
 - Inquiry model uses Date Validator gem for check in/check out date validation

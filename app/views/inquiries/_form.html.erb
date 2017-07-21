@@ -14,14 +14,14 @@
   <div class="field">
     <%= form.label :check_in %>
     <p>
-      <%= form.date_select :check_in, id: :inquiry_check_in, default: Date.today + 1, required: true %>
+      <%= form.date_field :check_in, id: :inquiry_check_in, selected: Date.today + 1, min: Date.today + 1, required: true %>
     </p>
   </div>
 
   <div class="field">
     <%= form.label :check_out %>
     <p>
-      <%= form.date_select :check_out, id: :inquiry_check_out, default: Date.today + 2, required: true %>
+      <%= form.date_field :check_out, id: :inquiry_check_out, default: Date.today + 2, min: Date.today + 2, required: true %>
     </p>
   </div>
 
@@ -51,7 +51,7 @@
       <% @units.each do |unit| %>
         <p>
           <%= form.radio_button :unit_id, unit.id %>
-          <%= form.label unit.ad_name %>
+          <%= form.label :unit_id, unit.ad_name %>
         </p>
       <% end %>
   </div>
@@ -59,7 +59,7 @@
     <div class="field">
     <%= form.label :rental_site %>
     <p>
-      <%= form.select :rental_site, ["Booking.com", "Bookit.com", "Expedia", "Hotels.com", "Travelocity", "Tripadvisor", "Tripping", "Trivago", "Other"], { include_blank: true }, id: :inquiry_rental_site %>
+      <%= form.select :rental_site, ["Booking.com", "Bookit.com", "Expedia", "Hotels.com", "Sonder", "Travelocity", "Tripadvisor", "Tripping", "Trivago", "Other"], { include_blank: true }, id: :inquiry_rental_site %>
     </p>
   </div>
 

@@ -1,27 +1,31 @@
 require 'rails_helper'
 require 'support/factory_girl'
+require 'support/database_cleaner'
 
-RSpec.fdescribe Inquiry, type: :model do
+DatabaseCleaner.strategy = :truncation
+DatabaseCleaner.clean
 
-  before :all do
-    unit = create :unit
-    10.times do
-      create(:day_price, unit_id: unit.id)
-    end
-    @inquiry = build(:inquiry, unit: unit)
-    @inquiry.calculate_cost_of_stay
-  end
+RSpec.describe Inquiry, type: :model do
   
+  before :all do
+      unit = create :unit
+      10.times do
+        create(:day_price, unit: unit)
+      end
+      @inquiry = build(:inquiry, unit: unit)
+      @inquiry.calculate_cost_of_stay
+    end
+
   describe "model validations" do
 
     it "should have a unit" do
-      expect(@inquiry.unit).to be_truthy
+      expect(@inquiry.unit_id).to be_a(Integer)
       expect(@inquiry.unit).to be_a(Unit)
     end
 
     it "should validate adults" do
       expect(@inquiry.adults).to be_truthy
-      expect(@inquiry.adults).to be_a(Fixnum)
+      expect(@inquiry.adults).to be_a(Integer)
     end
 
     it "should validate check_in date" do
@@ -53,8 +57,6 @@ RSpec.fdescribe Inquiry, type: :model do
 
   describe '#calculate_cost_of_stay' do
     context 'set inquiry object values for pricing' do
-      
-      
 
       context '#count_nights' do
         it 'should set the number of nights' do
@@ -77,6 +79,5 @@ RSpec.fdescribe Inquiry, type: :model do
       end
       
     end
-  end  
-
+  end
 end

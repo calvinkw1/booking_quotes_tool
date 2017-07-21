@@ -26,6 +26,7 @@ class Inquiry < ApplicationRecord
   def cost_per_night day_prices
     price_per_night = {}
     (self.check_in..self.check_out).each do |day|
+      # binding.pry
       price_per_night[day.to_s] = day_prices.find_by(date:day).price
     end
     price_per_night.values.reduce(:+)

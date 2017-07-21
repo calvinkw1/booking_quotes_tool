@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Inquiry #</th>
       <th>Unit Name</th>
       <th>Check In Date</th>
       <th>Check Out Date</th>
@@ -23,6 +24,7 @@
   <tbody>
     <% @inquiries.each do |inquiry| %>
       <tr>
+        <td><%= inquiry.id %></td>
         <td><%= link_to inquiry.unit.ad_name, inquiry_path(inquiry) %></td>
         <td><%= inquiry.check_in %></td>
         <td><%= inquiry.check_out %></td>

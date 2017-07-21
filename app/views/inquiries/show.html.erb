@@ -4,6 +4,21 @@
 <br>
 
 <h3>Inquiry # <%= @inquiry.id %></h3>
+  <p>
+    <strong>Name:</strong>
+    <%= @inquiry.inquirer_name %>
+  </p>
+  
+  <p>
+    <strong>Email:</strong>
+    <%= @inquiry.inquirer_email %>
+  </p>
+  
+  <p>
+    <strong>Phone Number:</strong>
+    <%= @inquiry.inquirer_phone %>
+  </p>
+
 <br>
 
 <p>
@@ -49,6 +64,11 @@
 <p>
   <strong>Tax:</strong>
   <%=h number_to_currency(@inquiry.tax) %>
+</p>
+
+<p>
+  <strong>Total Price:</strong>
+  <%=h number_to_currency(@inquiry.price + @inquiry.tax) %>
 </p>
 
 <p>

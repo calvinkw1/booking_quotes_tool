@@ -28,16 +28,23 @@ class InquiriesController < ApplicationController
   # POST /inquiries.json
   def create
     @inquiry = Inquiry.new(inquiry_params)
-    @inquiry.calculate_cost_of_stay
+    
+    if @inquiry.valid? && @inquiry.errors.empty?
+      @inquiry.calculate_cost_of_stay
 
-    respond_to do |format|
-      if @inquiry.save
-        format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }
-        format.json { render :show, status: :created, location: @inquiry }
-      else
-        format.html { render :new }
-        format.json { render json: @inquiry.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @inquiry.save
+          format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }
+          format.json { render :show, status: :created, location: @inquiry }
+        else
+          @units = Unit.all
+          format.html { render :new }
+          format.json { render json: @inquiry.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      @units = Unit.all
+      render :new
     end
   end
 
@@ -73,6 +80,6 @@ class InquiriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inquiry_params
-      params.require(:inquiry).permit(:rental_site, :unit_id, :price, :tax, :nights, :check_in, :check_out, :adults, :children, :pets)
+      params.require(:inquiry).permit(:inquirer_name, :inquirer_email, :inquirer_phone, :check_in, :check_out, :nights, :price, :tax, :unit_id, :adults, :children, :pets, :rental_site )
     end
 end

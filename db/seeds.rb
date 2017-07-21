@@ -17,11 +17,15 @@ Date.current.upto(10.days.from_now.to_date) do |date|
 end
 
 rental_sites = ["Booking.com", "Bookit.com", "Expedia", "Hotels.com", "Sonder", "Travelocity", "Tripadvisor", "Tripping", "Trivago", "Other"]
+names = ["Calvin", "Brennan", "Ray"]
 dates = Date.current.upto(7.days.from_now.to_date).to_a
 10.times do |i|
   check_in = dates.sample
   check_out = check_in + Random.rand(1..3)
   inquiry = Inquiry.new(
+    inquirer_name: names.sample,
+    inquirer_email: "candidate@sonder.com",
+    inquirer_phone: "415-555-5555",
     rental_site: rental_sites.sample,
     unit_id: Random.rand(1..2),
     adults: Random.rand(1..2),

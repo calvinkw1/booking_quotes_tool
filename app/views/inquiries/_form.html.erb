@@ -12,23 +12,45 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :inquirer_name %>
+    <p>
+      <%= form.text_field :inquirer_name, required: true, placeholder: "Steph Curry" %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= form.label :inquirer_email %>
+    <p>
+      <%= form.text_field :inquirer_email, required: true, placeholder: "example@sonder.com" %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= form.label :inquirer_phone %>
+    <p>
+      <%= form.text_field :inquirer_phone, required: true, placeholder: "415-555-5555" %>
+    </p>
+  </div>
+
+  <div class="field">
     <%= form.label :check_in %>
     <p>
-      <%= form.date_field :check_in, id: :inquiry_check_in, selected: Date.today + 1, min: Date.today + 1, required: true %>
+      <%= form.date_field :check_in, id: :inquiry_check_in, selected: l(Date.today), min: l(Date.today), required: true %>
     </p>
   </div>
 
   <div class="field">
     <%= form.label :check_out %>
     <p>
-      <%= form.date_field :check_out, id: :inquiry_check_out, default: Date.today + 2, min: Date.today + 2, required: true %>
+      <!-- TODO: validate check_out date after check_in date. Maybe flash notice? -->
+      <%= form.date_field :check_out, id: :inquiry_check_out, default: l(Date.today + 1), min: l(Date.today + 1), required: true %>
     </p>
   </div>
 
   <div class="field">
     <%= form.label :adults %>
     <p>
-      <%= form.select :adults, (0..10).map {|i| [i,i]}, id: :inquiry_adults, required: true %>
+      <%= form.select :adults, (1..10).map {|i| [i,i]}, id: :inquiry_adults, required: true %>
     </p>
   </div>
 
@@ -50,7 +72,7 @@
     <%= form.label "Select a unit:" %>
       <% @units.each do |unit| %>
         <p>
-          <%= form.radio_button :unit_id, unit.id %>
+          <%= form.radio_button :unit_id, unit.id, required: true %>
           <%= form.label :unit_id, unit.ad_name %>
         </p>
       <% end %>

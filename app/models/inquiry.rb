@@ -2,6 +2,12 @@ class Inquiry < ApplicationRecord
   belongs_to :unit
   validates :check_in, presence: true
   validates :check_out, presence: true, date: {after: :check_in}
+  validates :inquirer_name, presence: true
+  validates :inquirer_email, presence: true
+  validates :inquirer_phone, presence: true
+  validates_format_of :inquirer_email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i, :on => :create
+  validates_format_of :inquirer_phone, with: /\d{3}-\d{3}-\d{4}/, message: "Bad phone number format"
+
 
   def calculate_cost_of_stay
     unit = self.unit

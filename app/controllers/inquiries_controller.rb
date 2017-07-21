@@ -10,6 +10,8 @@ class InquiriesController < ApplicationController
   # GET /inquiries/1
   # GET /inquiries/1.json
   def show
+    # TODO: display logic for pricing breakdown
+    #   breakdown already calculated in .cost_per_night method
   end
 
   # GET /inquiries/new

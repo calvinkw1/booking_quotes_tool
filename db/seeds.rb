@@ -17,8 +17,17 @@ Date.current.upto(10.days.from_now.to_date) do |date|
 end
 
 rental_sites = ["expedia", "booking", "kayak", "hotels.com"]
+dates = Date.current.upto(7.days.from_now.to_date).to_a
 10.times do |i|
-  Date.current.upto(10.days.from_now.to_date) do |date|
-    Inquiry.create(rental_site: rental_sites.sample, unit_id: Random.rand(1..2), nights: Random.rand(1..5), adults: Random.rand(1..2), check_in: date)
-  end
+  check_in = dates.sample
+  check_out = check_in + Random.rand(1..3)
+  inquiry = Inquiry.new(
+    rental_site: rental_sites.sample,
+    unit_id: Random.rand(1..2),
+    adults: Random.rand(1..2),
+    check_in: check_in,
+    check_out: check_out
+    )
+  inquiry.calculate_cost_of_stay
+  inquiry.save!
 end

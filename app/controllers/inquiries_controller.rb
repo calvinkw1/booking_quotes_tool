@@ -15,16 +15,19 @@ class InquiriesController < ApplicationController
   # GET /inquiries/new
   def new
     @inquiry = Inquiry.new
+    @units = Unit.all
   end
 
   # GET /inquiries/1/edit
   def edit
+    @units = Unit.all
   end
 
   # POST /inquiries
   # POST /inquiries.json
   def create
     @inquiry = Inquiry.new(inquiry_params)
+    @inquiry.calculate_cost_of_stay
 
     respond_to do |format|
       if @inquiry.save

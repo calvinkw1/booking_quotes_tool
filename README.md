@@ -37,3 +37,4 @@ Your objective is to build the form by which our team will log the booking, and 
   - adults
   - children
   - pets
+- Inquiry model uses Date Validator gem for check in/check out date validation

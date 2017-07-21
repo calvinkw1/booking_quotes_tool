@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<%= link_to 'Back', inquiries_path %>
+
 <p>
   <strong>Rental site:</strong>
   <%= @inquiry.rental_site %>
@@ -7,17 +9,17 @@
 
 <p>
   <strong>Unit:</strong>
-  <%= @inquiry.unit_id %>
+  <%= @inquiry.unit.ad_name %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @inquiry.price %>
+  <%=h number_to_currency(@inquiry.price) %>
 </p>
 
 <p>
   <strong>Tax:</strong>
-  <%= @inquiry.tax %>
+  <%=h number_to_currency(@inquiry.tax) %>
 </p>
 
 <p>
@@ -51,4 +53,4 @@
 </p>
 
 <%= link_to 'Edit', edit_inquiry_path(@inquiry) %> |
-<%= link_to 'Back', inquiries_path %>
+<%= link_to 'Destroy', @inquiry, method: :delete, data: { confirm: 'Are you sure?' } %>

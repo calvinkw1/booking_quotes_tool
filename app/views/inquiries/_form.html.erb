@@ -12,53 +12,55 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :rental_site %>
-    <%= form.text_field :rental_site, id: :inquiry_rental_site %>
-  </div>
-
-  <div class="field">
-    <%= form.label :unit_id %>
-    <%= form.text_field :unit_id, id: :inquiry_unit_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :inquiry_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tax %>
-    <%= form.text_field :tax, id: :inquiry_tax %>
-  </div>
-
-  <div class="field">
-    <%= form.label :nights %>
-    <%= form.number_field :nights, id: :inquiry_nights %>
-  </div>
-
-  <div class="field">
     <%= form.label :check_in %>
-    <%= form.date_select :check_in, id: :inquiry_check_in %>
+    <p>
+      <%= form.date_select :check_in, id: :inquiry_check_in, default: Date.today + 1, required: true %>
+    </p>
   </div>
 
   <div class="field">
     <%= form.label :check_out %>
-    <%= form.date_select :check_out, id: :inquiry_check_out %>
+    <p>
+      <%= form.date_select :check_out, id: :inquiry_check_out, default: Date.today + 2, required: true %>
+    </p>
   </div>
 
   <div class="field">
     <%= form.label :adults %>
-    <%= form.number_field :adults, id: :inquiry_adults %>
+    <p>
+      <%= form.select :adults, (0..10).map {|i| [i,i]}, id: :inquiry_adults, required: true %>
+    </p>
   </div>
 
   <div class="field">
     <%= form.label :children %>
-    <%= form.number_field :children, id: :inquiry_children %>
+    <p>
+      <%= form.select :children, (0..10).map {|i| [i,i]}, id: :inquiry_children %>
+    </p>
   </div>
 
   <div class="field">
     <%= form.label :pets %>
-    <%= form.number_field :pets, id: :inquiry_pets %>
+    <p>
+      <%= form.select :pets, (0..5).map {|i| [i,i]}, id: :inquiry_pets %>
+    </p>
+  </div>
+
+  <div class="field">
+    <%= form.label "Select a unit:" %>
+      <% @units.each do |unit| %>
+        <p>
+          <%= form.radio_button :unit_id, unit.id %>
+          <%= form.label unit.ad_name %>
+        </p>
+      <% end %>
+  </div>
+
+    <div class="field">
+    <%= form.label :rental_site %>
+    <p>
+      <%= form.select :rental_site, ["Booking.com", "Bookit.com", "Expedia", "Hotels.com", "Travelocity", "Tripadvisor", "Tripping", "Trivago", "Other"], { include_blank: true }, id: :inquiry_rental_site %>
+    </p>
   </div>
 
   <div class="actions">

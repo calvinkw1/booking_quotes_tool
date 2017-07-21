@@ -7,26 +7,26 @@ DatabaseCleaner.clean
 
 RSpec.describe DayPrice, type: :model do
 
-  describe "model validations" do
+  describe 'model validations' do
 
     before :all do
       unit = build(:unit)
       @day_price = create(:day_price, unit: unit)
     end
 
-    it "should have a date" do
+    it 'should have a date' do
       expect(@day_price.date).to be_a(Date)
     end
 
-    it "should have a price" do
+    it 'should have a price' do
       expect(@day_price.price).to be_a(BigDecimal)
     end
 
-    it "should have a unit_id" do
+    it 'should have a unit_id' do
       expect(@day_price.unit_id).to be_a(Integer)
     end
 
-    it "should have a unit" do
+    it 'should have a unit' do
       expect(@day_price.unit).to be_a(Unit)
     end
 

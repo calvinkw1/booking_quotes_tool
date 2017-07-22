@@ -6,6 +6,7 @@ FactoryGirl.define do
     check_in Date.today + 2
     check_out Date.tomorrow + 3
     adults Random.rand(1..2)
+    rental_site "Sonder"
 
     association :unit
   end

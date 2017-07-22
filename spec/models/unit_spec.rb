@@ -20,6 +20,7 @@ RSpec.describe Unit, type: :model do
     end
 
     it 'should have a tax percentage' do
+      expect(@unit.tax_percent).to eq(0.2e0)
       expect(@unit.tax_percent).to be_a(BigDecimal)
     end
 

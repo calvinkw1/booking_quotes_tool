@@ -61,21 +61,25 @@ RSpec.describe Inquiry, type: :model do
 
       context '#count_nights' do
         it 'should set the number of nights' do
+          expect(@inquiry.nights).to eq(2)
           expect(@inquiry.nights).to be_a(Integer)
         end
       end
         
       context '#cost_per_night' do
         it 'should calculate price based on number of nights' do
+          expect(@inquiry.price).to eq(0.6e3)
           expect(@inquiry.price).to be_a(BigDecimal)
         end
 
         it 'should calculate tax' do
+          expect(@inquiry.tax).to eq(0.12e3)
           expect(@inquiry.tax).to be_a(BigDecimal)
         end
       end
 
       it 'should be able to calculate total price' do
+        expect(@inquiry.price + @inquiry.tax).to eq(0.72e3)
         expect(@inquiry.price + @inquiry.tax).to be_a(BigDecimal)
       end
       

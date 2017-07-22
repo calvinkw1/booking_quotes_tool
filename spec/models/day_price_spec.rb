@@ -16,9 +16,11 @@ RSpec.describe DayPrice, type: :model do
 
     it 'should have a date' do
       expect(@day_price.date).to be_a(Date)
+      expect(@day_price.date).to eq(Date.today + 1)
     end
 
     it 'should have a price' do
+      expect(@day_price.price).to eq(0.2e3)
       expect(@day_price.price).to be_a(BigDecimal)
     end
 

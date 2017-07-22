@@ -9,8 +9,8 @@ RSpec.describe DayPrice, type: :model do
 
   describe 'model validations' do
 
-    before :all do
-      unit = build(:unit)
+    before :each do
+      unit = create(:unit)
       @day_price = create(:day_price, unit: unit)
     end
 

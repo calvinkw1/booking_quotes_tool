@@ -12,10 +12,20 @@ RSpec.configure do |config|
   end
 
   config.before(:each) do
+    FactoryGirl.reload
     DatabaseCleaner.start
   end
 
   config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
+  config.before(:all) do
+    FactoryGirl.reload
+    DatabaseCleaner.start
+  end
+
+  config.after(:all) do
     DatabaseCleaner.clean
   end
 end

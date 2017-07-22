@@ -42,7 +42,6 @@
   <div class="field">
     <%= form.label :check_out %>
     <p>
-      <!-- TODO: validate check_out date after check_in date. Maybe flash notice? -->
       <%= form.date_field :check_out, id: :inquiry_check_out, default: l(Date.today + 1), min: l(Date.today + 1), required: true %>
     </p>
   </div>

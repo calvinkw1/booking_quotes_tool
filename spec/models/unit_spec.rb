@@ -9,7 +9,7 @@ RSpec.describe Unit, type: :model do
   
   describe 'model validations' do
 
-    before :all do
+    before :each do
       @unit = create(:unit)
       @day_price = create(:day_price, unit: @unit)
     end

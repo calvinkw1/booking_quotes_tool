@@ -26,7 +26,8 @@ Your objective is to build the form by which our team will log the booking, and 
 ## Changelog Notes
 
 ### Changes/Additions on Associations and Models
-- Added Inquiry model with `belongs_to` assoc. with Unit. Unit `has_many` inquiries. Inquiry has the following columns:
+- Added Inquiry model with `belongs_to` assoc. with Unit in order to be able to access it. Syntactically it doesn't sound right, as `Inquiry` should `have_one` `Unit`, however, the ActiveRecord association didn't work that way. I decided to go with this association for the ease of access to `Inquiry.first.unit`.
+- Unit `has_many` inquiries. Inquiry has the following columns:
   - rental_site
   - unit_id
   - price

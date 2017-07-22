@@ -2,6 +2,7 @@ class Inquiry < ApplicationRecord
   belongs_to :unit
   validates_presence_of :adults
   validates_presence_of :check_in
+  validates_presence_of :rental_site
   validates :check_out, presence: true, date: {after: :check_in}
   validates_presence_of :inquirer_name
   validates_presence_of :inquirer_email

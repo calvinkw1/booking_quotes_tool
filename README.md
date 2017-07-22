@@ -56,15 +56,14 @@ Your objective is to build the form by which our team will log the booking, and 
 	- Views
 		- `Index`
 		- `New`
-- I had originally intended to build out a full test suite across all views, but unfortunately got hung up for quite some time on configuration issues. Turns out that usage of `FactoryGirl`'s `sequence` method requires a call to `FactoryGirl.reload` in order to reset the sequence. I had gotten sidetracked by believing the test data was not being cleaned properly by the `database_cleaner` gem.
+- I had originally intended to build out a full test suite across all views, as well as controller/routing/request specs, but unfortunately got hung up for quite some time on configuration issues. Turns out that usage of `FactoryGirl`'s `sequence` method requires a call to `FactoryGirl.reload` in order to reset the sequence. I had gotten sidetracked by believing the test data was not being cleaned properly by the `database_cleaner` gem.
 
 ### Assumptions
 - Added inquirer contact information fields, assuming the CS Reps would need a way to contact the inquirer.
 - Guest counts included `Adults`, `Children`, and `Pets`, in the event that price calculation is affected by those counts.
-- 
 
 ### Things to implement if granted more time
 - Full test suite.
-- Price per night breakdown on the `Show` page.
+- Price per night breakdown on the `Show` page, which is already available through the `cost_per_night` `Inquiry` model instance method.
 - Appearance of a text box upon selection of `Other` in the `Rental site` dropdown in the form.
 - `Inquiries` table (Index) to be sorted by `Date Created`
